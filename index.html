@@ -8,8 +8,19 @@
   <link rel="stylesheet" href="css/style.css" />
   <!-- jQuery library for DOM manipulation -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Link to the external JavaScript file for additional scripts -->
+  
+  <!-- JavaScript code to handle menu toggle and hover sounds -->
   <script src="js/scripts.js"></script>
+
+  <!-- Ionicons for menu icons -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
 </head>
 <body>
 
@@ -44,6 +55,11 @@
     </li>
   </ul>
 
+  <!-- Color picker for changing menu color -->
+  <div class="colorSelect">
+    <input type="color" id="menuColorPicker" name="menuColorPicker" value="#ffffff">
+  </div> 
+
   <!-- Audio elements for sound effects -->
   <audio id="toggleSound">
     <source src="audio/close.mp3" type="audio/mpeg">
@@ -60,42 +76,7 @@
     <source src="audio/beep.ogg" type="audio/ogg">
   </audio>
 
-  <!-- JavaScript code to handle menu toggle and hover sounds -->
-  <script>
-    $(document).ready(function() {
-      var toggleSound = $("#toggleSound")[0];
-      var openSound = $("#openSound")[0];
-      var hoverSound = $("#hoverSound")[0];
-
-      let menuToggle = document.querySelector(".menuToggle");
-      let menu = document.querySelector(".menu");
-
-      menuToggle.onclick = function () {
-        menu.classList.toggle("active");
-        toggleSound.currentTime = 0; // Reset the audio to start from the beginning
-        toggleSound.play();
-        if (menu.classList.contains("active")) {
-          openSound.currentTime = 0; // Reset the audio to start from the beginning
-          openSound.play();
-        }
-      };
-
-      $("a").mouseenter(function() {
-        hoverSound.currentTime = 0; // Reset the audio to start from the beginning
-        hoverSound.play();
-      });
-    });
-  </script>
-
-  <!-- Ionicons for menu icons -->
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
+  
 
 </body>
 </html>
